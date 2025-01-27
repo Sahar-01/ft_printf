@@ -1,31 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_prinstr.c                                       :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scheragh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/27 20:26:44 by scheragh          #+#    #+#             */
-/*   Updated: 2025/01/27 21:17:00 by scheragh         ###   ########.fr       */
+/*   Created: 2025/01/27 20:39:38 by scheragh          #+#    #+#             */
+/*   Updated: 2025/01/27 20:41:11 by scheragh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
-#include <unistd.h>
 
-int	ft_printstr(char *s)
-{
-	int		i;
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-	i = 0;
-	if (s == NULL)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	while (s[i] != '\0')
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
-	return (i);
-}
+#endif

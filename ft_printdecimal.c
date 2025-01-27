@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_prinstr.c                                       :+:      :+:    :+:   */
+/*   ft_printdecimal.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scheragh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/27 20:26:44 by scheragh          #+#    #+#             */
-/*   Updated: 2025/01/27 21:17:00 by scheragh         ###   ########.fr       */
+/*   Created: 2025/01/27 21:29:35 by scheragh          #+#    #+#             */
+/*   Updated: 2025/01/27 21:33:25 by scheragh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
-#include <unistd.h>
+#include "ft_libft.h"
 
-int	ft_printstr(char *s)
+int ft_printdecimal(int n)
 {
-	int		i;
+	char p;
 
-	i = 0;
-	if (s == NULL)
+	if (n < 0)
 	{
-		write(1, "(null)", 6);
-		return (6);
+		if (n = -2147483648)
+		{
+			write(1, "-2147483648", 11);
+			return ;
+		}
+		else
+		{
+			n = -n
+			write(1, "-", 1);
+			ft_pritdecimal(n);
+			return ;
+		}
 	}
-	while (s[i] != '\0')
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
-	return (i);
+	if (n > 9)
+		ft_putnbr_fd(n / 10);
+	p = (n % 10) + 48;
+	write(1, &p, 1);
 }
+
