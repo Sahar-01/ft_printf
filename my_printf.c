@@ -6,14 +6,14 @@
 /*   By: scheragh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:28:50 by scheragh          #+#    #+#             */
-/*   Updated: 2025/01/27 21:20:28 by scheragh         ###   ########.fr       */
+/*   Updated: 2025/03/23 14:38:14 by scheragh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
-
+#include "ft_printf.h"
 int	print_format(char specifier, va_list ap)
 {
 	int	count;
