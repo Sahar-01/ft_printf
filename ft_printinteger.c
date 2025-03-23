@@ -1,23 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printinteger.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scheragh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/27 20:39:38 by scheragh          #+#    #+#             */
-/*   Updated: 2025/03/23 16:30:43 by scheragh         ###   ########.fr       */
+/*   Created: 2025/01/27 21:29:35 by scheragh          #+#    #+#             */
+/*   Updated: 2025/03/23 16:37:57 by scheragh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <unistd.h>
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+int	ft_printinteger(int n)
+{
+	char	p;
+	int		count;
 
-int		ft_printstr(char *s);
-int		ft_printchar(int c);
-int		ft_printinteger(int n);
-int		ft_printhexlow(unsigned int n);
-int		ft_printhexup(unsigned int n);
-int		ft_printunsignint(unsigned int nb);
-int		ft_printptr(void *ptr);
-#endif
+	count = 0;
+	if (n < 0)
+	{
+		if (n == -2147483648)
+		{
+			write(1, "-2147483648", 11);
+			return (11);
+		}
+		else
+		{
+			write(1, "-", 1);
+			n = -n;
+			count++;
+		}
+	}
+	if (n > 9)
+		count = ft_printinteger(n / 10);
+	p = (n % 10) + '0';
+	write(1, &p, 1);
+	return (count);
+}

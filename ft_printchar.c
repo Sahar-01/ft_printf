@@ -6,12 +6,13 @@
 /*   By: scheragh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:41:46 by scheragh          #+#    #+#             */
-/*   Updated: 2025/01/27 21:17:32 by scheragh         ###   ########.fr       */
+/*   Updated: 2025/03/23 16:27:07 by scheragh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
+#include <unistd.h>
 
-int	ft_printchar(char c)
+int	ft_printchar(int c)
 {
 	write(1, &c, 1);
 	return (1);

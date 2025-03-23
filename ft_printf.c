@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scheragh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:28:50 by scheragh          #+#    #+#             */
-/*   Updated: 2025/03/23 14:38:14 by scheragh         ###   ########.fr       */
+/*   Updated: 2025/03/23 16:29:26 by scheragh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include "ft_printf.h"
+
 int	print_format(char specifier, va_list ap)
 {
 	int	count;
@@ -25,20 +26,20 @@ int	print_format(char specifier, va_list ap)
 		count += ft_printstr(va_arg(ap, char *));
 	else if (specifier == 'p')
 		count += ft_printptr(va_arg(ap, void *));
-	else if (specifier == 'd')
-		count += ft_printdecimal(va_arg(ap, int));
-	else if (specifier == 'i')
+	else if (specifier == 'd' || specifier == 'i')
 		count += ft_printinteger(va_arg(ap, int));
 	else if (specifier == 'u')
-		count += ft_printunsign_decimal(va_arg(ap, unsigned int));
-	else if (specifier == 'x' || sepcifier == 'X')
-		count += ft_printhex(va_arg(ap, unsigned int));
+		count += ft_printunsignint(va_arg(ap, unsigned int));
+	else if (specifier == 'x')
+		count += ft_printhexlow(va_arg(ap, unsigned int));
+	else if (specifier == 'X')
+		count += ft_printhexup(va_arg(ap, unsigned int));
 	else
 		count += write(1, &specifier, 1);
 	return (count);
 }
 
-int	my_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	va_list	ap;
 	int		count;
@@ -57,11 +58,11 @@ int	my_printf(const char *format, ...)
 	return (count);
 }
 
-int	main()
+int	main(void)
 {
 	int	count;
 
-	count = my_printf("Hello %s\n", "John");
-	print(const char *, ...);
-	my_printf("The chars written are %d\n", count);
+	count = ft_printf("Hello %s\n", "John");
+	ft_printf("The chars written are %d\n", count);
+	return (0);
 }

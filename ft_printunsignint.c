@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printunsignint.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scheragh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/27 20:39:38 by scheragh          #+#    #+#             */
-/*   Updated: 2025/03/23 16:30:43 by scheragh         ###   ########.fr       */
+/*   Created: 2025/03/23 15:28:55 by scheragh          #+#    #+#             */
+/*   Updated: 2025/03/23 16:35:44 by scheragh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <unistd.h>
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+int	ft_printunsignint(unsigned int nb)
+{
+	char	p;
+	int		count;
 
-int		ft_printstr(char *s);
-int		ft_printchar(int c);
-int		ft_printinteger(int n);
-int		ft_printhexlow(unsigned int n);
-int		ft_printhexup(unsigned int n);
-int		ft_printunsignint(unsigned int nb);
-int		ft_printptr(void *ptr);
-#endif
+	count = 0;
+	if (nb > 9)
+		count += ft_printunsignint(nb / 10);
+	p = (nb % 10) + '0';
+	write(1, &p, 1);
+	count++;
+	return (count);
+}

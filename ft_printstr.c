@@ -6,7 +6,7 @@
 /*   By: scheragh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:26:44 by scheragh          #+#    #+#             */
-/*   Updated: 2025/01/27 21:17:00 by scheragh         ###   ########.fr       */
+/*   Updated: 2025/03/23 15:43:44 by scheragh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -19,7 +19,6 @@ int	ft_printstr(char *s)
 	i = 0;
 	if (s == NULL)
 	{
-		write(1, "(null)", 6);
 		return (6);
 	}
 	while (s[i] != '\0')
